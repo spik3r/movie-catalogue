@@ -1,3 +1,13 @@
+# Movie Catalogue
+See it on [On Heroku](https://react-movie-catalogue.herokuapp.com/)
+
+Implemented following the screenshot although I added a few things like the loading spinner and 
+a slightly different view for search results so that it's more clear to the user what he's seeing.
+I also noticed there are a few Movies with data missing so I added a couple of fallback images and text.
+An example of this can be found searching for `asd`
+
+Since there was no tablet or Desktop screens I implemented slightly different screens for those viewports.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
