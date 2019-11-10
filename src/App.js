@@ -5,8 +5,9 @@ import {Provider} from 'react-redux';
 import reducers from './redux/reducers/index';
 import rootSaga from "./redux/sagas/index";
 import createSagaMiddleware from 'redux-saga';
-import {Route, Router} from 'react-router-dom';
-import history from "./util/history";
+import {Route} from 'react-router-dom';
+import {Router} from 'react-router';
+import HISTORY from "./util/history";
 import LoadingSpinner from "./components/LoadingSpinner";
 import DetailScreen from "./screens/detailScreen";
 import ListScreen from "./screens/listScreen";
@@ -25,12 +26,14 @@ class App extends Component {
 
     sagaMiddleware.run(rootSaga);
 
+    const history = HISTORY;
+
     return (
         <Provider store={store}>
           <Router history={history}>
-            <Route exact={true} path="/" component={ListScreen} />
+            <Route exact={true} path="/" url="/" component={ListScreen} />
             <Route path="/details:id" component={DetailScreen} />
-            <Route path="/search" component={SearchListScreen} />
+            <Route exact={true} path="/search" component={SearchListScreen} />
             <Route path="/loading" component={LoadingSpinner} />
           </Router>
         </Provider>

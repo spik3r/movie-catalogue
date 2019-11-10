@@ -17,3 +17,7 @@ export function  toDisplayTime(time) {
         const minutes = (time % 60);
         return `${hours}h ${minutes} min`;
 }
+
+export const getId = (path)  => {
+    return path.split(":")[1];
+};

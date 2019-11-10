@@ -21,6 +21,7 @@ export const searchRequest = (searchTerm) => ({
     payload: {
         isLoading: true,
         showError: false,
+        showDetails: false,
         searchTerm
     }
 });
@@ -29,7 +30,8 @@ export const searchSuccess = ({movies}) => ({
     type: Types.SEARCH_SUCCESS,
     payload: {
         isLoading: false,
-        searchMovies: movies.results
+        searchMovies: movies.results,
+
     }
 });
 

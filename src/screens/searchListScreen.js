@@ -3,7 +3,6 @@ import HeroBanner from "../components/heroBanner";
 import MovieCards from "../components/movieCards";
 import {connect} from "react-redux";
 import BackButton from "../components/BackButton";
-import {goHome} from "../util/navigation";
 
 class SearchListScreen extends Component {
 
@@ -13,10 +12,10 @@ class SearchListScreen extends Component {
 
 
     render() {
-        // {this.props.movies || goHome()}
         return <div className="list-container">
             <HeroBanner/>
             <BackButton/>
+            <h1 className="search-heading">Movies relating to search term: <i className="search-term">' {this.props.searchTerm} '</i></h1>
             <MovieCards movies={this.props.movies}/>
         </div>;
     }
@@ -30,6 +29,7 @@ function mapStateToProps(state, props) {
     return {
         isLoading: state.moviesReducer.isLoading,
         movies: state.moviesReducer.searchMovies,
+        searchTerm: state.moviesReducer.searchTerm,
     }
 }
 
