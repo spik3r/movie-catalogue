@@ -36,7 +36,6 @@
   width: 100%;
 }
 
-
 .logo-image {
   position: absolute;
   top: 6vh;
@@ -82,7 +81,6 @@
   width: 80%;
 }
 
-/*url('https://www.themoviedb.org/assets/2/v4/footers_v2/IndianaJones-9f4b6f02f597ecfd9d4fc026359a105e483b129254a0e8d07870169561bff8ec.jpg'), radial-gradient(at 30% top, rgba(7, 64, 52, 1) 0%, rgba(8, 28, 36, 1) 70%)*/
 .search-input {
   width: 80%;
   border-radius: 25px 0 0 25px ;
@@ -106,7 +104,6 @@
   font-size: 20px;
   margin: 0;
 }
-/*card-container*/
 
 .card-container {
   display: flex;
@@ -119,11 +116,11 @@
 
 .card {
   position: relative;
+  max-height: 315px;
   max-width: 200px;
   flex-grow: 1;
-  flex-shrink: 0;
   flex-basis: 40%;
-  margin: 8px 2.5%;
+  margin: 6% 2.5%;
   text-align: center;
 }
 
@@ -166,7 +163,7 @@
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .card{
     flex-basis: 25%;
-    margin: 16px;
+    margin: 5% 2.5%;
   }
 
   .search-bar {
@@ -186,6 +183,7 @@
   }
 
   .card{
+    max-height: 355px;
     flex-basis: 20%;
     margin: 16px;
   }
@@ -276,7 +274,6 @@
 
 .details-top-spacer {
   flex-grow: 1;
-  background-color: pink;
   flex-basis: 30%;
 }
 
@@ -372,7 +369,6 @@
   .details-container{
     flex-basis: 80%;
     margin: 8px 5%;
-    background-color: deeppink;
   }
 
 }
@@ -381,7 +377,6 @@
   .details-container {
     width: 960px;
     margin: 0 auto;
-    background-color: lightblue;
   }
 
 }
@@ -419,8 +414,8 @@
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -434,4 +429,18 @@
   to {
     transform:rotate(360deg);
   }
+}
+
+.error {
+  border: 1px solid red;
+  background-color: pink;
+}
+
+.error-message-hidden {
+  display: none;
+}
+
+.error-message {
+  color: red;
+  display: block;
 }

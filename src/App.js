@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./App.css";
-import { applyMiddleware, createStore, compose} from "redux";
+import {applyMiddleware, compose, createStore} from "redux";
 import {Provider} from 'react-redux';
 import reducers from './redux/reducers/index';
 import rootSaga from "./redux/sagas/index";
 import createSagaMiddleware from 'redux-saga';
-import { Router, Route} from 'react-router-dom';
+import {Route, Router} from 'react-router-dom';
 import history from "./util/history";
 import LoadingSpinner from "./components/LoadingSpinner";
 import DetailScreen from "./screens/detailScreen";
 import ListScreen from "./screens/listScreen";
+import SearchListScreen from "./screens/searchListScreen";
+
 class App extends Component {
 
   render() {
@@ -28,8 +30,7 @@ class App extends Component {
           <Router history={history}>
             <Route exact={true} path="/" component={ListScreen} />
             <Route path="/details:id" component={DetailScreen} />
-            {/*<Route path="/quiz" component={Quiz} />*/}
-            {/*<Route path="/results" component={Results} />*/}
+            <Route path="/search" component={SearchListScreen} />
             <Route path="/loading" component={LoadingSpinner} />
           </Router>
         </Provider>

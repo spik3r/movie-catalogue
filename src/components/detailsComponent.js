@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {currentPath, goBack} from "../util/navigation";
 import {config} from "../api/defaultConfig";
-import {toDisplayTime, toPercentage, toDisplayYear} from "../util/mapper";
-import {withRouter} from "react-router-dom";
-import {connect} from "react-redux";
+import {toDisplayTime, toDisplayYear, toPercentage} from "../util/mapper";
+import BackButton from "./BackButton";
 
 class DetailsComponent extends Component {
 
@@ -11,37 +9,22 @@ class DetailsComponent extends Component {
         super(props);
     }
 
-
     render() {
-        console.log("details", this.props.details);
-        const imgBase = config.mobile_card_base;
-        const imgPath = this.props.details.poster_path;
-        const fullPath = imgBase + imgPath;
+        const {details} = this.props;
 
-        const backdropBase = config.mobile_backdrop_base;
-        const backdropPath = this.props.details.backdrop_path;
-        const bgImgPath = backdropBase + backdropPath;
-
-        const rating = toPercentage(this.props.details.vote_average);
-        const movieDuration = this.props.details.runtime;
-
-        // console.log('location', this.props.location);
-        // const movieId = getId(this.props.location.pathname);
-        // const theMovie = getMovie(this.props.movies, movieId);
-
-        const releaseDate = toDisplayYear(this.props.details.release_date);
+        const {fullPath, bgImgPath, rating, movieDuration, releaseDate} = this.prepareDetails(details);
 
         return <div className="details-container">
             <>
-                <i className="fa fa-arrow-left back-arrow" onClick={goBack}></i>
-                <img src={bgImgPath} alt="Joker" className="details-image"/>
+                <BackButton/>
+                <img src={bgImgPath} alt={details.title} ref={bg => this.bg = bg} onError={()=>{this.bg.src=require('../assets/bg-not-found.png')}} className="details-image"/>
             </>
             <div className="details-content">
                 <div className="details-top">
-                    <img src={fullPath} alt="Joker" className="details-card-image details-top-left"/>
+                    <img src={fullPath} alt={details.title} ref={img => this.img = img} onError={()=>{this.img.src=require('../assets/fallback-image.png')}} className="details-card-image details-top-left"/>
                     <div className="details-top-spacer"></div>
                     <div className="details-top-right">
-                        <h1 className="details-title">{this.props.details.title}</h1>
+                        <h1 className="details-title">{details.title}</h1>
                         <section className="details-summary">
                             <p className="details-release-date-score">
                                 {releaseDate} - {rating} User Score
@@ -57,7 +40,7 @@ class DetailsComponent extends Component {
                 <div className="details-bottom">
                     <h2>Overview</h2>
                     <section className="movie-description">
-                        {this.props.details.overview}
+                        {details.overview || "Oops it looks like we're missing the description for this one :(" }
                     </section>
                 </div>
 
@@ -65,18 +48,27 @@ class DetailsComponent extends Component {
         </div>;
     }
 
-}
+    prepareDetails(details) {
+        try {
+        console.log('details', details);
+        const imgBase = config.mobile_card_base;
+        const imgPath = details.poster_path;
+        const fullPath = imgBase + imgPath;
 
-const mapDispatchToProps = {
-};
+        const backdropBase = config.mobile_backdrop_base;
+        const backdropPath = details.backdrop_path;
+        const bgImgPath = backdropBase + backdropPath;
 
+        const rating = toPercentage(details.vote_average);
+        const movieDuration = details.runtime;
 
-function mapStateToProps(state, props) {
-    return {
-        isLoading: state.moviesReducer.isLoading,
-        details: state.moviesReducer.details,
-        id: state.moviesReducer.id
+        const releaseDate = toDisplayYear(details.release_date);
+        return {fullPath, bgImgPath, rating, movieDuration, releaseDate};
+        }
+        catch (e) {
+            console.log("error", e);
+        }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DetailsComponent));
+export default DetailsComponent;

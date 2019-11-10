@@ -1,7 +1,6 @@
 <svg
- xmlns="http://www.w3.org/2000/svg"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- width="1559px" height="828px">
+        xmlns="http://www.w3.org/2000/svg"
+        width="1559px" height="828px">
 <defs>
 <filter id="Filter_0">
     <feFlood flood-color="rgb(2, 181, 108)" flood-opacity="1" result="floodOut" />

@@ -16,6 +16,23 @@ export const loadMoviesSuccess = ({movies}) => ({
     }
 });
 
+export const searchRequest = (searchTerm) => ({
+    type: Types.SEARCH_REQUEST,
+    payload: {
+        isLoading: true,
+        showError: false,
+        searchTerm
+    }
+});
+
+export const searchSuccess = ({movies}) => ({
+    type: Types.SEARCH_SUCCESS,
+    payload: {
+        isLoading: false,
+        searchMovies: movies.results
+    }
+});
+
 export const unhandledError = () => ({
     type: Types.ERROR,
     payload: {

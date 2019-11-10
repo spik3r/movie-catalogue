@@ -11,9 +11,14 @@ function* watchLoadDetailsRequest(){
     yield takeEvery(Types.LOAD_DETAILS_REQUEST, worker.loadMovieDetails);
 }
 
+function* watchSearchRequest(){
+    yield takeEvery(Types.SEARCH_REQUEST, worker.searchMovies);
+}
+
 const moviesSagas = [
     fork(watchLoadMoviesRequest),
     fork(watchLoadDetailsRequest),
+    fork(watchSearchRequest),
 ];
 
 

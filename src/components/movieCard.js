@@ -13,18 +13,18 @@ class MovieCard extends React.Component {
 
 
     render() {
-        const {id, fullPath, releaseDate, title, rating} = this.props;
-
+        const {fullPath, releaseDate, title, rating} = this.props;
 
         return <div className="card" onClick={this.handleClick}>
-            <img className="card-image" src={fullPath} alt="Joker"/>
+            <img className="card-image" src={fullPath} ref={img => this.img = img} onError={()=>{this.img.src=require('../assets/fallback-image.png')}}/>
+
             <p className="card-rating">{rating}</p>
             <p className="card-heading">{title}</p>
             <p className="card-release-date">{releaseDate}</p>
         </div>;
     }
 
-};
+}
 
 const mapDispatchToProps = {
     loadDetailsRequest
@@ -32,8 +32,7 @@ const mapDispatchToProps = {
 
 
 function mapStateToProps(state, props) {
-    return {
-    }
+    return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);

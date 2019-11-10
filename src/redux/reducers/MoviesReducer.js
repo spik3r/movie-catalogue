@@ -6,13 +6,24 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case Types.LOAD_MOVIES_REQUEST: {
             console.log('LOAD_MOVIES_REQUEST', action.payload);
-            return {...state,
+            return {
+                ...state,
                 ...action.payload,
             }
         }
+
         case Types.LOAD_DETAILS_REQUEST: {
             console.log('LOAD_DETAILS_REQUEST', action.payload);
-            return {...state,
+            return {
+                ...state,
+                ...action.payload,
+            }
+        }
+
+        case Types.SEARCH_REQUEST: {
+            console.log('SEARCH_REQUEST', action.payload);
+            return {
+                ...state,
                 ...action.payload,
             }
         }
@@ -30,6 +41,14 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 ...action.payload
+            }
+        }
+
+        case Types.SEARCH_SUCCESS: {
+            console.log('SEARCH_SUCCESS', action.payload);
+            return {
+                ...state,
+                ...action.payload,
             }
         }
 
