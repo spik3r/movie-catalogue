@@ -5,6 +5,9 @@
 .App-logo {
   height: 40vmin;
 }
+body {
+  background-color: #081b23;
+}
 
 #root {
   display: flex;
@@ -12,7 +15,6 @@
   background-color: #081b23;
   padding: 0;
   color: white;
-  height: 100vh;
 }
 
 .App-header {
