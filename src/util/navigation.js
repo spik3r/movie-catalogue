@@ -7,7 +7,3 @@ export default function navTo(loc) {
 export function goBack() {
     history.goBack();
 }
-
-export function goHome() {
-    history.push("/");
-}

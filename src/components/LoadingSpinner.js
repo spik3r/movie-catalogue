@@ -6,4 +6,5 @@ function LoadingSpinner() {
         <div className="loader"></div>
     </div>;
 }
+
 export default LoadingSpinner;

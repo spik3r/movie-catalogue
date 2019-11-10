@@ -6,4 +6,5 @@ function BackButton() {
         <i className="fa fa-arrow-left back-arrow" onClick={goBack}></i>
     </>;
 }
+
 export default BackButton;

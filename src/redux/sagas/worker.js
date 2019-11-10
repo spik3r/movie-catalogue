@@ -5,7 +5,6 @@ import {loadDetailsSuccess, loadMoviesSuccess, searchSuccess, showDetails, unhan
 export function* loadPopularMovies(action) {
     try {
         const result = yield call(api.loadPopularMovies);
-        console.log('movies', result);
         yield put(loadMoviesSuccess({
             movies: result.data
         }));
@@ -17,8 +16,6 @@ export function* loadPopularMovies(action) {
 export function* loadMovieDetails(action) {
     try {
         const result = yield call(api.loadMovieDetails, action.payload.id);
-        console.log('details', result);
-        console.log('action', action);
         yield put(loadDetailsSuccess({
             details: result.data
         }));
@@ -31,7 +28,6 @@ export function* loadMovieDetails(action) {
 export function* searchMovies(action) {
     try {
         const result = yield call(api.searchMovies, action.payload.searchTerm);
-        console.log('movies', result);
         yield put(searchSuccess({
             movies: result.data
         }));

@@ -28,10 +28,11 @@ class MovieCards extends React.Component {
         return <ul className="card-container">
             <Modal className="modal" show={this.props.isLoading}/>
 
-            { this.props.movies && this.props.movies.map((movie) => {
+            {this.props.movies && this.props.movies.map((movie) => {
                 const {id, fullPath, releaseDate, title, rating} = this.getMovieDetails(movie);
 
-                return <MovieCard key={id} id={id} fullPath={fullPath} releaseDate={releaseDate} title={title} rating={rating}/>
+                return <MovieCard key={id} id={id} fullPath={fullPath} releaseDate={releaseDate} title={title}
+                                  rating={rating}/>
             })}
         </ul>;
     }

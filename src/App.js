@@ -15,30 +15,30 @@ import SearchListScreen from "./screens/searchListScreen";
 
 class App extends Component {
 
-  render() {
-    const sagaMiddleware = createSagaMiddleware();
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    render() {
+        const sagaMiddleware = createSagaMiddleware();
+        const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-    const store = createStore(
-        reducers,
-        composeEnhancers(applyMiddleware(sagaMiddleware)),
-    );
+        const store = createStore(
+            reducers,
+            composeEnhancers(applyMiddleware(sagaMiddleware)),
+        );
 
-    sagaMiddleware.run(rootSaga);
+        sagaMiddleware.run(rootSaga);
 
-    const history = HISTORY;
+        const history = HISTORY;
 
-    return (
-        <Provider store={store}>
-          <Router history={history}>
-            <Route exact={true} path="/" url="/" component={ListScreen} />
-            <Route path="/details:id" component={DetailScreen} />
-            <Route exact={true} path="/search" component={SearchListScreen} />
-            <Route path="/loading" component={LoadingSpinner} />
-          </Router>
-        </Provider>
-    );
-  }
+        return (
+            <Provider store={store}>
+                <Router history={history}>
+                    <Route exact={true} path="/" url="/" component={ListScreen}/>
+                    <Route path="/details:id" component={DetailScreen}/>
+                    <Route exact={true} path="/search" component={SearchListScreen}/>
+                    <Route path="/loading" component={LoadingSpinner}/>
+                </Router>
+            </Provider>
+        );
+    }
 }
 
 

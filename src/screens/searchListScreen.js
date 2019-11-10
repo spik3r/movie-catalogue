@@ -6,23 +6,19 @@ import BackButton from "../components/BackButton";
 
 class SearchListScreen extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-
     render() {
         return <div className="list-container">
             <HeroBanner/>
             <BackButton/>
-            <h1 className="search-heading">Movies relating to search term: <i className="search-term">' {this.props.searchTerm} '</i></h1>
+            <h1 className="search-heading">Movies relating to search term: <i
+                className="search-term">' {this.props.searchTerm} '</i></h1>
             <MovieCards movies={this.props.movies}/>
         </div>;
     }
 
 }
-const mapDispatchToProps = {
-};
+
+const mapDispatchToProps = {};
 
 
 function mapStateToProps(state, props) {

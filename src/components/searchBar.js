@@ -5,10 +5,6 @@ import navTo from "../util/navigation";
 
 class SearchBar extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     state = {
         showError: false
     };
@@ -53,7 +49,9 @@ class SearchBar extends Component {
                     <i className="fa fa-search"></i>
                 </button>
             </div>
-            <div className={this.state.showError ? "error-message" : "error-message-hidden"}>Please Enter a Movie name!</div>
+            <div className={this.state.showError ? "error-message" : "error-message-hidden"}>Please Enter a Movie
+                name!
+            </div>
         </>;
     }
 }

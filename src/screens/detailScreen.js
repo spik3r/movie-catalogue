@@ -7,10 +7,6 @@ import {withRouter} from "react-router-dom";
 
 class DetailScreen extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
 
         return this.safeDisplayDetails();

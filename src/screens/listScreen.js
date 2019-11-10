@@ -6,10 +6,6 @@ import {connect} from "react-redux";
 
 class ListScreen extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return <div className="list-container">
             <HeroBanner/>
@@ -20,8 +16,7 @@ class ListScreen extends Component {
 
 }
 
-const mapDispatchToProps = {
-};
+const mapDispatchToProps = {};
 
 function mapStateToProps(state, props) {
     return {

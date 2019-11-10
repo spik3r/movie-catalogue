@@ -5,7 +5,6 @@ const INITIAL_STATE = {};
 export default function moviesReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case Types.LOAD_MOVIES_REQUEST: {
-            console.log('LOAD_MOVIES_REQUEST', action.payload);
             return {
                 ...state,
                 ...action.payload,
@@ -13,7 +12,6 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
         }
 
         case Types.LOAD_DETAILS_REQUEST: {
-            console.log('LOAD_DETAILS_REQUEST', action.payload);
             return {
                 ...state,
                 ...action.payload,
@@ -21,7 +19,6 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
         }
 
         case Types.SEARCH_REQUEST: {
-            console.log('SEARCH_REQUEST', action.payload);
             return {
                 ...state,
                 ...action.payload,
@@ -29,7 +26,6 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
         }
 
         case Types.LOAD_MOVIES_SUCCESS: {
-            console.log('LOAD_MOVIES_SUCCESS', action.payload);
             return {
                 ...state,
                 ...action.payload
@@ -37,7 +33,6 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
         }
 
         case Types.LOAD_DETAILS_SUCCESS: {
-            console.log('LOAD_DETAILS_SUCCESS', action.payload);
             return {
                 ...state,
                 ...action.payload
@@ -45,7 +40,6 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
         }
 
         case Types.SEARCH_SUCCESS: {
-            console.log('SEARCH_SUCCESS', action.payload);
             return {
                 ...state,
                 ...action.payload,
@@ -53,7 +47,6 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
         }
 
         case Types.ERROR: {
-            console.log('ERROR', action.payload);
             return {
                 ...state,
                 ...action.payload
@@ -61,7 +54,6 @@ export default function moviesReducer(state = INITIAL_STATE, action) {
         }
 
         case Types.SHOW_DETAILS: {
-            console.log('SHOW_DETAILS', action.payload);
             return {
                 ...state,
                 ...action.payload

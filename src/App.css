@@ -135,15 +135,23 @@
 }
 
 .card-rating {
-  margin: 4px;
+  margin: 4px 4px 4px 12px;
   top: 0;
   position: absolute;
   color: white;
-  background-color: #01d277;
+  background-color: #01D277;
   border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
   padding: 2px 8px;
+}
+
+.red {
+  background-color: #D1225B;
+}
+
+.purple {
+  background-color: #4902A3;
 }
 
 .card-heading {
@@ -228,7 +236,7 @@
   border-radius: 10px;
   width: 40%;
   /*height: 220px;*/
-  top: 12vh;
+  top: 10vh;
   left: 4%;
 }
 
@@ -323,16 +331,15 @@
     display: flex;
     flex-basis: 20%;
     max-height: 300px;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .details-top-left {
     flex-grow: 1;
     flex-basis: 20%;
     align-items: start;
-    position: relative;
+    position: unset;
     z-index: 10;
   }
 
@@ -340,6 +347,7 @@
     flex-grow: 2;
     flex-basis: 70%;
     align-items: flex-start;
+    margin-top: 8px;
   }
 
   .details-hr {
@@ -369,7 +377,7 @@
   }
 
   .details-card-image {
-    position: static;
+    /*position: static;*/
   }
 }
 
