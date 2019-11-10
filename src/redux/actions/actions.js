@@ -4,7 +4,8 @@ export const loadMoviesRequest = () => ({
     type: Types.LOAD_MOVIES_REQUEST,
     payload: {
         isLoading: true,
-        showError: false
+        showError: false,
+        showDetails: false,
     }
 });
 
@@ -48,6 +49,7 @@ export const loadDetailsRequest = (movieId) => ({
     payload: {
         isLoading: true,
         showError: false,
+        showDetails: false,
         id: movieId
     }
 });
