@@ -17,12 +17,12 @@ class App extends Component {
 
     render() {
         const sagaMiddleware = createSagaMiddleware();
-        // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+        const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
         const store = createStore(
             reducers,
-            applyMiddleware(sagaMiddleware),
-            // composeEnhancers(applyMiddleware(sagaMiddleware)),
+            // applyMiddleware(sagaMiddleware),
+            composeEnhancers(applyMiddleware(sagaMiddleware)),
         );
 
         sagaMiddleware.run(rootSaga);
