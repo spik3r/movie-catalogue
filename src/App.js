@@ -5,8 +5,8 @@ import {Provider} from 'react-redux';
 import reducers from './redux/reducers/index';
 import rootSaga from "./redux/sagas/index";
 import createSagaMiddleware from 'redux-saga';
-import {Route} from 'react-router-dom';
-import {Router} from 'react-router';
+import {Route, Router} from 'react-router-dom';
+// import {Router} from 'react-router';
 import HISTORY from "./util/history";
 import LoadingSpinner from "./components/LoadingSpinner";
 import DetailScreen from "./screens/detailScreen";
@@ -17,11 +17,12 @@ class App extends Component {
 
     render() {
         const sagaMiddleware = createSagaMiddleware();
-        const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+        // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
         const store = createStore(
             reducers,
-            composeEnhancers(applyMiddleware(sagaMiddleware)),
+            applyMiddleware(sagaMiddleware),
+            // composeEnhancers(applyMiddleware(sagaMiddleware)),
         );
 
         sagaMiddleware.run(rootSaga);
